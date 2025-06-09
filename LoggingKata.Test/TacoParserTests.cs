@@ -9,10 +9,10 @@ namespace LoggingKata.Test
         public void ShouldReturnNonNullObject()
         {
             //Arrange
-            var tacoParser = new TacoParser();
+            var tacoParserInstance = new TacoParser();
 
             //Act
-            var actual = tacoParser.Parse("34.073638, -84.677017, Taco Bell Acwort...");
+            var actual = tacoParserInstance.Parse("34.073638, -84.677017, Taco Bell Acwort...");
 
             //Assert
             Assert.NotNull(actual);
@@ -31,14 +31,27 @@ namespace LoggingKata.Test
             //       represents a TacoBell location
 
             //Arrange
+            var tacoParserInstance = new TacoParser();
 
             //Act
+            var actual = tacoParserInstance.Parse(line);
 
             //Assert
+            Assert.Equal(expected, actual.Location.Longitude);
         }
 
 
         //TODO: Create a test called ShouldParseLatitude
+        [Theory]
+        [InlineData("34.073638, -84.677017, Taco Bell Acwort...", 34.073638)]
+        public void ShouldParseLatitude(string line, double expected)
+        {
+            var tacoParserInstance = new TacoParser();
+            
+            var actual = tacoParserInstance.Parse(line);
+            
+            Assert.Equal(expected, actual.Location.Latitude);
+        }
 
     }
 }
