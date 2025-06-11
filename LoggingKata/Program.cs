@@ -3,6 +3,7 @@ using System.Linq;
 using System.IO;
 using GeoCoordinatePortable;
 
+
 namespace LoggingKata
 {
     class Program
@@ -61,7 +62,8 @@ namespace LoggingKata
 
                 for (int j = 0; j < locations.Length; j++)
                 {
-                    var locB = locations[j];
+                   var locB = locations[j];
+                    
                     var corB = new GeoCoordinate();
                     corB.Latitude = locB.Location.Latitude;
                     corB.Longitude = locB.Location.Longitude;
@@ -73,7 +75,7 @@ namespace LoggingKata
                         tacoBell2 = locB;
                     }
                 }
-                logger.LogInfo($"{tacoBell1} and {tacoBell2} are the farthest apart.");
+                logger.LogInfo($"{tacoBell1.Name} and {tacoBell2.Name} are the farthest apart.");
             }
 
             // TODO: Once you have locA, create a new Coordinate object called `corA` with your locA's latitude and longitude.
