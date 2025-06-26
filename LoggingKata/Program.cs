@@ -75,8 +75,9 @@ namespace LoggingKata
                         tacoBell2 = locB;
                     }
                 }
-                logger.LogInfo($"{tacoBell1.Name} and {tacoBell2.Name} are the farthest apart.");
+                
             }
+            logger.LogInfo($"{tacoBell1.Name} and {tacoBell2.Name} are the farthest apart.");
 
             // TODO: Once you have locA, create a new Coordinate object called `corA` with your locA's latitude and longitude.
 
